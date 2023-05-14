@@ -11,4 +11,17 @@ app.use(express.json());
 // Default repsonse for an error request
 app.use((req, res) => {
   res.status(404).end();
-})
+});
+
+// Connect to database
+const db = mysql.createConnection(
+  {
+    host: 'localhost',
+    // MySQL username,
+    user: 'root',
+    // TODO: Add MySQL password here
+    password: '',
+    database: 'employee_db'
+  }, 
+  
+)
