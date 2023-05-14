@@ -22,3 +22,7 @@ CREATE TABLE role (
  salary DECIMAL NOT NULL,
  department_id INT NOT NULL
 );
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'NEW_USER_PASSWORD';
+FLUSH PRIVILEGES;
+
