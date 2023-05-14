@@ -24,5 +24,5 @@ Values
 ('Charlye' 'StrongFox', 4,2),
 ( 'Brooklynn', 'McBride' 5,2),
 ('Stephan', 'Sherwinn', 6,3),
-('Frank', 'Jordan', 7,3),
+('Frank', 'Jordan', 7,4),
 ('Bianca', 'Whethers', 8,4)
