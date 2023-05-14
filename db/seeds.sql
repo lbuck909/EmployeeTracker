@@ -19,4 +19,10 @@ Values
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 Values
 ('Lena', 'Luther', 1,1),
-('Pinky', 'Wilson', 1,1)
+('Pinky', 'Wilson', 2,1),
+('Brian', 'Jackson' 3,1),
+('Charlye' 'StrongFox', 4,2),
+( 'Brooklynn', 'McBride' 5,2),
+('Stephan', 'Sherwinn', 6,3),
+('Frank', 'Jordan', 7,3),
+('Bianca', 'Whethers', 8,4)
