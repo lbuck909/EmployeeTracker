@@ -1,9 +1,11 @@
 const express = require('express');
 const inquirer = require('inquirer');
 const db = require('./db/connection');
-const mysql = require('mysql');
+const mysql = require('mysql2');
+
 const PORT = process.env. PORT || 3001;
 const app = express();
+
 // Express middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -14,13 +16,10 @@ app.use((req, res) => {
 });
 
 // Connect to database
-const db = mysql.createConnection(
+const connection = mysql.createConnection(
   {
     host: 'localhost',
-    // MySQL username,
     user: 'root',
-    // TODO: Add MySQL password here
-    password: '',
     database: 'employee_db'
   },
   console.log(`Connected to the employee_db database.`)
