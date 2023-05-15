@@ -41,7 +41,7 @@ function newPrompt(){
   inquirer.prompt({
     type: "list",
     message: "What data would you like view?",
-    choices: ['View All Departments','View All Roles',  'View All Emplyees', ' Add a Department', ' Add a Role', 'Add a Employee', 'Update Employee Role', 'Nevermind'],
+    choices: ['View All Departments','View All Roles', 'View All Emplyees', 'Add a Department', 'Add a Role', 'Add a Employee', 'Update Employee Role', 'Nevermind'],
     name: "menu",
   })
 .then((answer) => {
