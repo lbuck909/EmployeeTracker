@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 // const db = require('./db/connection');
 const mysql = require('mysql2');
 
+
 // const PORT = process.env. PORT || 3001;
 // const app = express();
 
@@ -108,4 +109,23 @@ function viewAllEmployees() {
     console.table(res);
     newPrompt();
   });
+}
+
+// add dept, role, emp files
+
+function addDepartment() {
+  inquirer.prompt({
+    type: "input",
+    message: "What department would you like to add?",
+    name: "newDept"
+
+
+  }).then(function(answer){
+    connection.query("INSERT INTO department (name) VALUES (?)", [answer.newDept] , function(err, res){
+      if (err) throw err;
+      console.table(res)
+      newPrompt()
+    });
+  });
+
 }
