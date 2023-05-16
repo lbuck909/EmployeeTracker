@@ -57,7 +57,7 @@ function newPrompt(){
             case 'View All Employees':
                 viewAllEmployees();
                 break;
-            case 'Add A Department':
+            case 'Add a Department':
                 addDepartment();
                 break;
             case 'Add a Role':
@@ -114,13 +114,14 @@ function viewAllEmployees() {
 // add dept, role, emp files
 
 function addDepartment() {
-  inquirer.prompt({
-    type: "input",
+  inquirer.prompt([
+  {  type: "input",
     message: "What department would you like to add?",
-    name: "newDept"
+    name: "newDept"}
+  ])
 
-
-  }).then(function(answer){
+  .then(function(answer){
+    console.log(answer);
     connection.query("INSERT INTO department (name) VALUES (?)", [answer.newDept] , function(err, res){
       if (err) throw err;
       console.table(res)
