@@ -87,7 +87,7 @@ console.table(result)
 newPrompt();
 
 function viewAllDepartments() {
-  const query = "select * FROM department";
+  const query = "SELECT * FROM department";
   connection.query(query, function(err, res){
     if (err) throw err;
     console.table(res);
@@ -95,7 +95,7 @@ function viewAllDepartments() {
   });
 }
 function viewAllRoles() {
-  const query = "select * FROM role";
+  const query = "SELECT * FROM role";
   connection.query(query, function(err, res){
     if (err) throw err;
     console.table(res);
@@ -103,7 +103,7 @@ function viewAllRoles() {
   });
 }
 function viewAllEmployees() {
-  const query = "select * FROM employee";
+  const query = "SELECT * FROM employee";
   connection.query(query, function(err, res){
     if (err) throw err;
     console.table(res);
@@ -125,7 +125,38 @@ function addDepartment() {
       if (err) throw err;
       console.table(res)
       newPrompt()
+    })
+  })
+
+}
+
+function addRole() {
+  inquirer.prompt([
+    {
+      type: "input",
+      message: "What's the name of the role?",
+      name: "newRole"
+    },
+    
+    {
+      type: "input",
+      message: "What's the department id for this role?",
+      name: "deptID"
+    },
+
+    {
+      type: "input",
+      message: "What's the salary of the role?",
+      name: "newSalary"
+    },
+  ])
+
+
+  .then(function(answer) {
+    connection.query("INSERT INTO role (new role, department_id, salary) VALUES (?, ?, ?)", [answer.newRole, answer.deptID, answer.salary] , function(err, res){
+      if (err) throw err;
+      console.table(res);
+      newPrompt();
     });
   });
-
 }
