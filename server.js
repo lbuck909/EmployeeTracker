@@ -41,7 +41,7 @@ function newPrompt(){
   inquirer.prompt({
     type: "list",
     message: "What data would you like view?",
-    choices: ['View All Departments','View All Roles', 'View All Emplyees', 'Add a Department', 'Add a Role', 'Add a Employee', 'Update Employee Role', 'Nevermind'],
+    choices: ['View All Departments','View All Roles', 'View All Employees', 'Add a Department', 'Add a Role', 'Add a Employee', 'Update Employee Role', 'Nevermind'],
     name: "menu",
   })
 .then((answer) => {
@@ -83,7 +83,29 @@ console.table(result)
 // newPrompt()
   })
 }
-// db.query('SELECT COUNT(id) AS total_count FROM favorite_books GROUP BY in_stock', function (err, results) {
-//   console.log(results);
-// });
 newPrompt();
+
+function viewAllDepartments() {
+  const query = "select * FROM department";
+  connection.query(query, function(err, res){
+    if (err) throw err;
+    console.table(res);
+    newPrompt();
+  });
+}
+function viewAllRoles() {
+  const query = "select * FROM role";
+  connection.query(query, function(err, res){
+    if (err) throw err;
+    console.table(res);
+    newPrompt();
+  });
+}
+function viewAllEmployees() {
+  const query = "select * FROM employee";
+  connection.query(query, function(err, res){
+    if (err) throw err;
+    console.table(res);
+    newPrompt();
+  });
+}
