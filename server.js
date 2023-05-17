@@ -117,10 +117,18 @@ function addDepartment() {
   inquirer.prompt([
   {  type: "input",
     message: "What department would you like to add?",
-    name: "newDept"}
-  ])
+    name: "newDept"
+  },
+  {
+    type: "input",
+    message: "What is the new department ID number?",
+    name: "id"
+    
+  }
 
-  .then(function(answer){
+
+
+  ]).then(function(answer){
     console.log(answer);
     connection.query("INSERT INTO department (name) VALUES (?)", [answer.newDept] , function(err, res){
       if (err) throw err;

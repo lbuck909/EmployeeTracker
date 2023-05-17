@@ -7,7 +7,7 @@ Values
 
 INSERT INTO role ( department_id, title, salary)
 Values
-(1, 'Executive Chef', 75000),
+(1, 'Executive Chef', 75000);
 (1, 'Sous Chef', 50000),
 (1, 'Line Cook', 24000),
 (2, 'Catering Manager', 65000),
@@ -19,10 +19,10 @@ Values
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 Values
 ('Lena', 'Luther', 1,1),
-('Pinky', 'Wilson', 2,1),
+('Pinky', 'Wilson', 2,NULL),
 ('Brian', 'Jackson', 3,1),
-('Charlye', 'StrongFox', 4,2),
-( 'Brooklynn', 'McBride', 5,2),
+('Charlye', 'StrongFox', 4,NULL),
+( 'Brooklynn', 'McBride', 5,NULL),
 ('Stephan', 'Sherwinn', 6,3),
-('Frank', 'Jordan', 7,4),
+('Frank', 'Jordan', 7,NULL),
 ('Bianca', 'Whethers', 8,4);
