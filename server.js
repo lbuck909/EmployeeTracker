@@ -76,14 +76,15 @@ function newPrompt(){
 
 })
 };
-function viewAllDepartments(){
-  console.log('viewAll');
-  connection.connect().query('select * from department', function (err,result){
-if (err) throw err
-console.table(result)
-// newPrompt()
-  })
-}
+
+// function viewAllDepartments(){
+//   console.log('viewAll');
+//   connection.connect().query('select * from department', function (err,result){
+// if (err) throw err
+// console.table(result)
+
+//   })
+// }
 newPrompt();
 
 function viewAllDepartments() {
@@ -115,7 +116,7 @@ function viewAllEmployees() {
 
 function addDepartment() {
   inquirer.prompt([
-  {  type: "input",
+  { type: "input",
     message: "What department would you like to add?",
     name: "newDept"
   },
@@ -128,9 +129,10 @@ function addDepartment() {
 
 
 
-  ]).then(function(answer){
+  ])
+  .then(function(answer){
     console.log(answer);
-    connection.query("INSERT INTO department (name) VALUES (?)", [answer.newDept] , function(err, res){
+    connection.query("INSERT INTO department (department_name) VALUES (?)", [answer.newDept] , function(err, res){
       if (err) throw err;
       console.table(res)
       newPrompt()
@@ -158,11 +160,17 @@ function addRole() {
       message: "What's the salary of the role?",
       name: "newSalary"
     },
+  //   {
+  //     type: "number",
+  //     message: "Please enter the managers numerical id associated with the employee you want to add.",
+  //     name: "manager_id"
+  // }
+
   ])
 
 
   .then(function(answer) {
-    connection.query("INSERT INTO role (new role, department_id, salary) VALUES (?, ?, ?)", [answer.newRole, answer.deptID, answer.salary] , function(err, res){
+      connection.query("INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)", [answer.newRole, answer.deptID, answer.salary] , function(err, res){
       if (err) throw err;
       console.table(res);
       newPrompt();
