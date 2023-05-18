@@ -170,7 +170,8 @@ function addRole() {
 
 
   .then(function(answer) {
-      connection.query("INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)", [answer.newRole, answer.deptID, answer.salary] , function(err, res){
+
+      connection.query("INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)", [answer.newRole, answer.newSalary, answer.deptID] , function(err, res) {
       if (err) throw err;
       console.table(res);
       newPrompt();
