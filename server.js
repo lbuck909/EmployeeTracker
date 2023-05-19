@@ -166,7 +166,7 @@ function addRole() {
 
 
   .then(function(answer) {
-
+      console.log(answer);
       connection.query("INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)", [answer.newRole, answer.newSalary, answer.deptID] , function(err, res) {
       if (err) throw err;
       console.table(res);
@@ -214,6 +214,15 @@ function addEmployee() {
 
 function updateEmployee() {
   inquirer.prompt([
+  
+
+    {
+      type: "input",
+      message: "What role ID would like to update?",
+      name: "roleUpdate"
+  
+    },
+  
   {
     type: "input",
     message: "Which employee would you like to update?",
@@ -221,15 +230,11 @@ function updateEmployee() {
 
   },
 
-  {
-    type: "input",
-    message: "What role ID would like to add?",
-    name: "roleUpdate"
-
-  }
+  
 ])
 .then(function(answer) {
-  connection.query('Update employee SET role_id=? WHERE first_name=?', [answer.empUpdate, answer.roleUpdate], function(err, res) {
+  console.log(answer);
+  connection.query('UPDATE employee SET role_id=? WHERE first_name=?', [answer.roleUpdate, answer.empUpdate], function(err, res) {
     if (err) throw err;
     console.table(res);
   newPrompt();   
