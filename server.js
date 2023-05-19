@@ -242,7 +242,7 @@ function updateEmployeeRole() {
 });
 }
 
-// function exit(){
-//   connection.end();
-//   process.quit();
-// }
+function quit(){
+  connection.end();
+  process.exit();
+}
