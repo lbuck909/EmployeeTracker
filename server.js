@@ -63,7 +63,7 @@ function newPrompt(){
             case 'Add a Role':
                 addRole();
                 break;
-            case 'Add an Employee':
+            case 'Add a Employee':
                 addEmployee();
                 break;
             case 'Update an Employee Role':
@@ -160,11 +160,7 @@ function addRole() {
       message: "What's the salary of the role?",
       name: "newSalary"
     },
-  //   {
-  //     type: "number",
-  //     message: "Please enter the managers numerical id associated with the employee you want to add.",
-  //     name: "manager_id"
-  // }
+  
 
   ])
 
@@ -181,6 +177,7 @@ function addRole() {
 
 function addEmployee() {
   inquirer.prompt([
+  
   {
     type: "input",
     message: "What's the employee first name?",
@@ -213,4 +210,34 @@ function addEmployee() {
     newPrompt();  
   });
 });
+}
+
+function updateEmployee() {
+  inquirer.prompt([
+  {
+    type: "input",
+    message: "Which employee would you like to update?",
+    name: "empUpdate"
+
+  },
+
+  {
+    type: "input",
+    message: "What role ID would like to add?",
+    name: "roleUpdate"
+
+  }
+])
+.then(function(answer) {
+  connection.query('Update employee SET role_id=? WHERE first_name=?', [answer.empUpdate, answer.roleUpdate], function(err, res) {
+    if (err) throw err;
+    console.table(res);
+  newPrompt();   
+  });
+});
+
+function exit(){
+  connection.end();
+  process.quit();
+}
 }
