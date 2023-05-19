@@ -13,3 +13,6 @@ This application utilizes SQL (structured query language) a popular method to cr
 1. Run node server.js to start application. 
 2. You may chose to view all employees, departments, or roles.
 3. The options to update employee role, add a department, and or add a employee will be available.
+
+# Video Example of Application
+![Video link](<iframe src="https://drive.google.com/file/d/1o-ESez4JEVLicKi5KldyHkFC20HCutD2/preview" width="640" height="480"></iframe>)
