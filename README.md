@@ -5,7 +5,7 @@ This application utilizes SQL (structured query language) a popular method to cr
 
 ## Technology Used
 * JavaScript
-* MySQL
+* MySQL2
 * Express.js
 * Node.js
 

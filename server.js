@@ -66,7 +66,7 @@ function newPrompt(){
             case 'Add a Employee':
                 addEmployee();
                 break;
-            case 'Update an Employee Role':
+            case 'Update Employee Role':
                 updateEmployeeRole();
                 break;
       
@@ -212,23 +212,23 @@ function addEmployee() {
 });
 }
 
-function updateEmployee() {
+function updateEmployeeRole() {
   inquirer.prompt([
   
+    {
+      type: "input",
+      message: "Which employee would you like to update?",
+      name: "empUpdate"
+  
+    },
 
     {
       type: "input",
-      message: "What role ID would like to update?",
+      message: "What would you like their new role ID to be?",
       name: "roleUpdate"
   
     },
   
-  {
-    type: "input",
-    message: "Which employee would you like to update?",
-    name: "empUpdate"
-
-  },
 
   
 ])
@@ -240,9 +240,9 @@ function updateEmployee() {
   newPrompt();   
   });
 });
+}
 
-function exit(){
-  connection.end();
-  process.quit();
-}
-}
+// function exit(){
+//   connection.end();
+//   process.quit();
+// }
