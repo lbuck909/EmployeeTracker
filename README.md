@@ -1,4 +1,4 @@
-# **EmployeeTracker
+# EmployeeTracker
 
 ## Overview
 This application utilizes SQL (structured query language) a popular method to create a database that can used for the client-side operations. Specifically, within this project MySQL is used to corelate structured, relational databases. The generated databases will display in a tabular form, similar to a spreadsheet. Node.js, Inquirer and MySQL were used to develop this example of a content management system (CMS).
